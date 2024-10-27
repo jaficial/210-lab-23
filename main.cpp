@@ -12,7 +12,7 @@ const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
 int select_goat(list<Goat> trip);
 void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string [], string []);
+void add_goat(list<Goat> &trip, string [], string [], int);
 void display_trip(list<Goat> trip);
 int main_menu();
 
@@ -34,10 +34,11 @@ int main_menu(){
     return choice;
 }
 
-void add_goat(list <Goat> &trip, string [], string []){
-    
-
+void add_goat(list <Goat> &trip, string name[], string color[], int age){
+    Goat temp 
+    trip.push_back()
 }
+
 int main() {
     srand(time(0));
     bool again;
@@ -54,6 +55,8 @@ int main() {
     i = 0;
     while (fin1 >> colors[i++]); // while loop inserts all possible colors from the colors.txt file into an array "colors"
     fin1.close();
+
+    list<Goat> trip; // list of Goat objects is created
 
    // WORKS: GM3K1 ENGINE THAT WILL LOOP THE MENU
     bool menu = true;
