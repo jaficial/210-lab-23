@@ -55,16 +55,23 @@ void display_trip(list <Goat> trip){
     }
 }
 
+// WORKS
 int select_goat(list <Goat> trip){
     int selection;
     display_trip(trip);
-    cout << endl << "Select which goat you'd like to delete: ";
+    cout << "Select which goat you'd like to delete: ";
     cin >> selection;
     return selection;
 }
 
+// WORKS
 void delete_goat(list <Goat> &trip){
-
+    int temp_selection = select_goat(trip);
+    auto iter = trip.begin();
+    for (int i = 0; i < temp_selection - 1; i++){ // temp_selection - 1 because displaying the trip begins with 1 representing index 0 of the list
+        iter++;
+    }
+    trip.erase(iter);
 }
 // when adding a goat, use random info from names, colors, and random age between 0 and MAX_AGE
 // when deleting a goat, display the trip, which will then allow the user to select which goat to delete
@@ -105,13 +112,9 @@ int main() {
             add_goat(trip, names, colors);
         }
 
-        // Choice 2
+        // WORKING: Choice 2
         else if (temp_menu_choice == 2){
-            int temp_selection = select_goat(trip);
-            int iter = 2;
-            trip.erase(iter)
-
-
+            delete_goat(trip);
         }
 
         // WORKING: Choice 3
@@ -119,8 +122,6 @@ int main() {
             display_trip(trip);
         }
     }
-
-
 
     return 0;
 }
