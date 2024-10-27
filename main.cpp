@@ -63,8 +63,8 @@ int select_goat(list <Goat> trip){
     return selection;
 }
 
-void delete_goat(){
-    
+void delete_goat(list <Goat> &trip){
+
 }
 // when adding a goat, use random info from names, colors, and random age between 0 and MAX_AGE
 // when deleting a goat, display the trip, which will then allow the user to select which goat to delete
@@ -92,6 +92,7 @@ int main() {
     bool menu = true;
     while (menu){
         int temp_menu_choice;
+        cout << endl;
         temp_menu_choice = main_menu();
         
         // WORKING: Choice 4 
@@ -107,6 +108,9 @@ int main() {
         // Choice 2
         else if (temp_menu_choice == 2){
             int temp_selection = select_goat(trip);
+            int iter = 2;
+            trip.erase(iter)
+
 
         }
 
