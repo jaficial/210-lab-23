@@ -33,9 +33,8 @@ int main_menu(){
     return choice;
 }
 
-// parameters for goat: (name, age, color)
-// function takes in the names array and the colors array
-// WORKS
+// NOTE: parameters for goat: (name, age, color)
+// add_goat selects a random age, name, and color for the goat, creates a temporary Goat object with teh random parameters, and pushes the object into the trip list 
 void add_goat(list <Goat> &trip, string name[], string color[]){
     int temp_age = rand() % MAX_AGE;
     int temp_name = rand() % SZ_NAMES;
@@ -45,7 +44,7 @@ void add_goat(list <Goat> &trip, string name[], string color[]){
     trip.push_back(temp);
 }
 
-// WORKS
+// display_trip takes in the trip list as a parameter, iterates thorugh the list, and outputs the name, color, and age of each Goat object in the list
 void display_trip(list <Goat> trip){
     int iter = 1;
     for (auto val : trip){
@@ -54,30 +53,35 @@ void display_trip(list <Goat> trip){
     }
 }
 
-// WORKS
+// selecte_goat takes in the trip list as a parameter, displays the list, then asks for which goat the user would like to delete
+// the user is to select the index of the goat that they would like to delete from the list
 int select_goat(list <Goat> trip){
     int selection;
     display_trip(trip);
     cout << "Index Selection: ";
     cin >> selection;
-    if ((selection > trip.size()) || selection < 1){
+    if ((selection > trip.size()) || selection < 1){ // if the user selects an index that does not exist, function provides an error message and returns back to main
         cout << "Invalid Selection" << endl;
+        selection = -1;
+        return selection;
     }
-    return selection;
+    return selection; // else returns the index selection
 }
 
-// WORKS
+// delete_goat takes in the trip list as a parameter, utilizes the select_goat function to allow the user to select the index of a goat, and deletes the goat at the selected index
 void delete_goat(list <Goat> &trip){
     cout << "Please input the index of the goat from the trip below, that you would like to delete." << endl;
-    int temp_selection = select_goat(trip);
-    auto iter = trip.begin();
+    int temp_selection = select_goat(trip); 
+    if (temp_selection == -1){ // if there was an invalid selection, function returns to main
+        return;
+    }
+
+    auto iter = trip.begin(); // NOTE: .begin() returns an iterator to first element of list
     for (int i = 0; i < temp_selection - 1; i++){ // temp_selection - 1 because displaying the trip begins with 1 representing index 0 of the list
         iter++;
     }
     trip.erase(iter);
 }
-// when adding a goat, use random info from names, colors, and random age between 0 and MAX_AGE
-// when deleting a goat, display the trip, which will then allow the user to select which goat to delete
 
 int main() {
     srand(time(0));
