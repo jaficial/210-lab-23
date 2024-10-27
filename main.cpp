@@ -28,12 +28,10 @@ int main_menu(){
     cin >> choice;
 
     if ((choice < 1) || (choice > 4)){
-        cout << "Choice Invalid" << endl;
+        cout << "Invalid Choice" << endl;
     }
-
-    if (choice == 1) {
-
-    }
+ 
+    return choice;
 }
 
 int main() {
