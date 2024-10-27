@@ -36,7 +36,7 @@ int main_menu(){
 
 // parameters for goat: (name, age, color)
 // function takes in the names array and the colors array
-// should be working, come back here to test and confirm
+// WORKS
 void add_goat(list <Goat> &trip, string name[], string color[]){
     int temp_age = rand() % MAX_AGE;
     int temp_name = rand() % SZ_NAMES;
@@ -46,14 +46,26 @@ void add_goat(list <Goat> &trip, string name[], string color[]){
     trip.push_back(temp);
 }
 
-void display_trip(list <Goat> &trip){
-    int iter = 0;
+// WORKS
+void display_trip(list <Goat> trip){
+    int iter = 1;
     for (auto val : trip){
-        cout << "\t" << "[" << iter << "] " << val.get_name() << "(" << val.get_age() << ", " << val.get_color() << ")" << endl;
+        cout << "\t" << "[" << iter << "] " << val.get_name() << " (" << val.get_age() << ", " << val.get_color() << ")" << endl;
+        iter++;    
     }
 }
 
+int select_goat(list <Goat> trip){
+    int selection;
+    display_trip(trip);
+    cout << endl << "Select which goat you'd like to delete: ";
+    cin >> selection;
+    return selection;
+}
 
+void delete_goat(){
+    
+}
 // when adding a goat, use random info from names, colors, and random age between 0 and MAX_AGE
 // when deleting a goat, display the trip, which will then allow the user to select which goat to delete
 
@@ -81,16 +93,26 @@ int main() {
     while (menu){
         int temp_menu_choice;
         temp_menu_choice = main_menu();
+        
+        // WORKING: Choice 4 
         if (temp_menu_choice == 4){
             menu = false;
         }
         
+        // WORKING: Choice 1
         if (temp_menu_choice == 1){
             add_goat(trip, names, colors);
         }
 
-        else if (temp_menu_choice == 3){
+        // Choice 2
+        else if (temp_menu_choice == 2){
+            int temp_selection = select_goat(trip);
 
+        }
+
+        // WORKING: Choice 3
+        else if (temp_menu_choice == 3){
+            display_trip(trip);
         }
     }
 
