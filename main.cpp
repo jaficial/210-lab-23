@@ -41,15 +41,27 @@ int main() {
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
     string names[SZ_NAMES];
+
     int i = 0;
-    while (fin >> names[i++]);
+    while (fin >> names[i++]); // while loop inserts all the names from the names.txt file into an array "names"
     fin.close();
     ifstream fin1("colors.txt");
     string colors[SZ_COLORS];
     i = 0;
-    while (fin1 >> colors[i++]);
+    while (fin1 >> colors[i++]); // while loop inserts all possible colors from the colors.txt file into an array "colors"
     fin1.close();
 
+   // WORKS: GM3K1 ENGINE THAT WILL LOOP THE MENU
+    bool menu = true;
+    while (menu){
+        int temp_menu_choice;
+        temp_menu_choice = main_menu();
+        if (temp_menu_choice == 4){
+            menu = false;
+        }
+        
+        if temp_menu_choice
+    }
 
 
 
