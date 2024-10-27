@@ -102,36 +102,36 @@ int main() {
 
     list<Goat> trip; // list of Goat objects is created
 
-   // WORKS: GM3K1 ENGINE THAT WILL LOOP THE MENU
+   // GM3K1 ENGINE THAT WILL LOOP THE main_menu function
     bool menu = true;
     while (menu){
         int temp_menu_choice;
         cout << endl;
         temp_menu_choice = main_menu();
         
-        // WORKING: Choice 4 
+        // if user chooses to quit the main menu
         if (temp_menu_choice == 4){
             menu = false;
         }
         
-        // WORKING: Choice 1
+        // if user chooses to add a goat
         if (temp_menu_choice == 1){
             add_goat(trip, names, colors);
         }
 
-        // WORKING: Choice 2
+        // if user chooses to delete a goat
         else if (temp_menu_choice == 2){
             cout << endl;
             delete_goat(trip);
         }
 
-        // WORKING: Choice 3
+        // if user chooses to display the trip
         else if (temp_menu_choice == 3){
             cout << endl << "This is the current trip as of right now:" << endl;
             display_trip(trip);
         }
     }
-
+    
     return 0;
 }
 
