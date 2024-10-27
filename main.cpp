@@ -30,7 +30,6 @@ int main_menu(){
     if ((choice < 1) || (choice > 4)){
         cout << "Invalid Choice" << endl;
     }
- 
     return choice;
 }
 
@@ -59,13 +58,17 @@ void display_trip(list <Goat> trip){
 int select_goat(list <Goat> trip){
     int selection;
     display_trip(trip);
-    cout << "Select which goat you'd like to delete: ";
+    cout << "Index Selection: ";
     cin >> selection;
+    if ((selection > trip.size()) || selection < 1){
+        cout << "Invalid Selection" << endl;
+    }
     return selection;
 }
 
 // WORKS
 void delete_goat(list <Goat> &trip){
+    cout << "Please input the index of the goat from the trip below, that you would like to delete." << endl;
     int temp_selection = select_goat(trip);
     auto iter = trip.begin();
     for (int i = 0; i < temp_selection - 1; i++){ // temp_selection - 1 because displaying the trip begins with 1 representing index 0 of the list
@@ -114,11 +117,13 @@ int main() {
 
         // WORKING: Choice 2
         else if (temp_menu_choice == 2){
+            cout << endl;
             delete_goat(trip);
         }
 
         // WORKING: Choice 3
         else if (temp_menu_choice == 3){
+            cout << endl << "This is the current trip as of right now:" << endl;
             display_trip(trip);
         }
     }
