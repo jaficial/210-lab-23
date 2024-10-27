@@ -34,6 +34,10 @@ int main_menu(){
     return choice;
 }
 
+void add_goat(list <Goat> &trip, string [], string []){
+    
+
+}
 int main() {
     srand(time(0));
     bool again;
@@ -60,7 +64,9 @@ int main() {
             menu = false;
         }
         
-        if temp_menu_choice
+        if (temp_menu_choice == 1){
+
+        }
     }
 
 
