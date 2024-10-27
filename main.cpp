@@ -12,7 +12,7 @@ const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
 int select_goat(list<Goat> trip);
 void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string [], string [], int);
+void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
 int main_menu();
 
@@ -34,10 +34,20 @@ int main_menu(){
     return choice;
 }
 
-void add_goat(list <Goat> &trip, string name[], string color[], int age){
-    Goat temp 
-    trip.push_back()
+// parameters for goat: (name, age, color)
+// function takes in the names array and the colors array
+// should be working, come back here to test and confirm
+void add_goat(list <Goat> &trip, string name[], string color[]){
+    int temp_age = rand() % MAX_AGE;
+    int temp_name = rand() % SZ_NAMES;
+    int temp_color = rand() % SZ_COLORS;
+    
+    Goat temp(name[temp_name], temp_age, color[temp_color]);
+    trip.push_back(temp);
 }
+
+// when adding a goat, use random info from names, colors, and random age between 0 and MAX_AGE
+// when deleting a goat, display the trip, which will then allow the user to select which goat to delete
 
 int main() {
     srand(time(0));
