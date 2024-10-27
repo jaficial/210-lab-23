@@ -6,11 +6,6 @@
 #include <iostream>
 using namespace std;
 
-/* write three constructors for the Goat class: 
-    - constructor that has name as an argument
-    - constructor with name and age
-    - constructor with all three parameters  
- */ 
 class Goat {
 private:
     string name;
@@ -23,7 +18,7 @@ public:
     Goat(string goat_name) {name = goat_name;}
     // constructor with name and age
     Goat(string goat_name, int goat_age) {name = goat_name; age = goat_age;}
-    // constructor with all parameters
+    // constructor with name, age, and color
     Goat(string goat_name, int goat_age, string goat_color) {name = goat_name; age = goat_age; color = goat_color;}
 
     // setters and getters
